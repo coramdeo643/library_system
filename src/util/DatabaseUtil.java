@@ -16,6 +16,8 @@ public class DatabaseUtil {
 
     // 데이터베이스 연결 객체를 반환하는 함수
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+
     }
+
 }
