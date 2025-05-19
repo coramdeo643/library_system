@@ -78,8 +78,8 @@ public class BorrowDAO {
                 "select * from borrows where student_id = ? and book_id = ? and return_date is null ";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement checkPstmt = conn.prepareStatement(checkSql)) {
-            checkPstmt.setInt(1, bookId);
-            checkPstmt.setInt(2, studentPK);
+            checkPstmt.setInt(1, studentPK);
+            checkPstmt.setInt(2, bookId);
             ResultSet rs = checkPstmt.executeQuery();
             if (rs.next()) {
                 String updateSql =
@@ -105,11 +105,11 @@ public class BorrowDAO {
         // 대출 실행 테스트
         BorrowDAO borrowDAO = new BorrowDAO();
         try {
-            borrowDAO.returnBook(2,3);
-//            borrowDAO.getBorrowedBooks();
-//            for (int i = 0; i < borrowDAO.getBorrowedBooks().size(); i++) {
-//                System.out.println(borrowDAO.getBorrowedBooks().get(i));
-//            }
+//            borrowDAO.returnBook(2,3);
+            borrowDAO.getBorrowedBooks();
+            for (int i = 0; i < borrowDAO.getBorrowedBooks().size(); i++) {
+                System.out.println(borrowDAO.getBorrowedBooks().get(i));
+            }
 //            borrowDAO.borrowBook(2,3);
         } catch (SQLException e) {
             throw new RuntimeException(e);
