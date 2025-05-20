@@ -79,7 +79,7 @@ public class BorrowDAO {
             String checkSQL =
                     "select id from borrows where book_id = ? " +
                             "and student_id = ? and return_date is null ";
-            try(PreparedStatement checkPstmt = conn.prepareStatement(checkSQL)) {
+            try (PreparedStatement checkPstmt = conn.prepareStatement(checkSQL)) {
                 checkPstmt.setInt(1, bookId);
                 checkPstmt.setInt(2, studentPK);
                 ResultSet rs = checkPstmt.executeQuery();
@@ -105,16 +105,17 @@ public class BorrowDAO {
             // 3. (return date) 아직 반납되지 않은 대출 기록만 찾아야함 = 대출중이라는 뜻
             // 3.1. 반납되었던 예전 같은책 같은 학생의 대출기록은 조회할 필요없음.
         } catch (SQLException e) {
-            if(conn != null) {
+            if (conn != null) {
                 conn.rollback(); // 오류 발생시 rollback
             }
             System.err.println("Rollback completed");
         } finally {
-            if(conn != null) {
+            if (conn != null) {
                 conn.setAutoCommit(true); // 다시 auto commit setting
                 conn.close(); // resource release
             }
         }
+    }
 //        // studentPK --> borrows student_id
 //        // student pk
 //        //select * from borrows where student_id = 3 and book_id = 1 and return_date is null;
