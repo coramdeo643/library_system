@@ -147,18 +147,18 @@ public class BorrowDAO {
 //        }
 //    }
 //
-    public static void main(String[] args) {
-        // 대출 실행 테스트
-        BorrowDAO borrowDAO = new BorrowDAO();
-        try {
+//    public static void main(String[] args) {
+//        // 대출 실행 테스트
+//        BorrowDAO borrowDAO = new BorrowDAO();
+//        try {
 //            borrowDAO.returnBook(2,3);
-            borrowDAO.getBorrowedBooks();
-            for (int i = 0; i < borrowDAO.getBorrowedBooks().size(); i++) {
-                System.out.println(borrowDAO.getBorrowedBooks().get(i));
-            }
+//            borrowDAO.getBorrowedBooks();
+//            for (int i = 0; i < borrowDAO.getBorrowedBooks().size(); i++) {
+//                System.out.println(borrowDAO.getBorrowedBooks().get(i));
+//            }
 //            borrowDAO.borrowBook(2,3);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
